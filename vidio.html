@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Collection | Pynuet Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Pynuet<span>Gallery</span></div>
+        <ul>
+            <li><a href="home.html" style="text-decoration: none; color: inherit;">Back to Home</a></li>
+        </ul>
+    </nav>
+
+    <header class="section-header">
+        <h1>Video Library / <span>Koleksi Video</span></h1>
+        <p class="en">Cinematic moments captured through motion and sound.</p>
+        <p class="id">Momen sinematik yang ditangkap melalui gerak dan suara.</p>
+    </header>
+
+    <section class="section">
+        <div class="video-grid-all">
+            
+            <div class="v-card" onclick="openVideoLightbox('assets/vid/ririn.mp4', 'Erine JKT48 - Slowmotion')">
+                <div class="v-preview">
+                    <video poster="assets/Kartini/erine.jpg">
+                        <source src="assets/vid/ririn.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="v-meta">
+                    <span class="v-tag">Cinematic</span>
+                    <h3>Erine JKT48 - Slowmotion</h3>
+                    <p>Stage performance documentation in high-frame rate.</p>
+                </div>
+            </div>
+
+            <div class="v-card" onclick="openVideoLightbox('assets/vid/concert_reel.mp4', 'Summer Music Festival')">
+                <div class="v-preview">
+                    <video>
+                        <source src="assets/vid/concert_reel.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="v-meta">
+                    <span class="v-tag">Event</span>
+                    <h3>Summer Music Festival</h3>
+                    <p>Aftermovie for the biggest beach festival of 2026.</p>
+                </div>
+            </div>
+
+            <div class="v-card" onclick="openVideoLightbox('assets/vid/commercial_ad.mp4', 'Product Showcase: Bali Oil')">
+                <div class="v-preview">
+                    <video>
+                        <source src="assets/vid/commercial_ad.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="v-meta">
+                    <span class="v-tag">Commercial</span>
+                    <h3>Product Showcase: Bali Oil</h3>
+                    <p>A minimalist commercial video for local brand branding.</p>
+                </div>
+            </div>
+
+            <div class="v-card" onclick="openVideoLightbox('assets/vid/community_vlog.mp4', 'Community Gathering Vol. 2')">
+                <div class="v-preview">
+                    <video>
+                        <source src="assets/vid/community_vlog.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="v-meta">
+                    <span class="v-tag">Documentary</span>
+                    <h3>Community Gathering Vol. 2</h3>
+                    <p>Capturing raw interactions and joy within the community.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="videoLightbox" class="video-lightbox" onclick="closeVideoLightbox()">
+        <span class="close-btn">&times;</span>
+        <div class="video-modal-content" onclick="event.stopPropagation()">
+            <video id="modalVideoPlayer" controls autoplay>
+                <source src="" type="video/mp4">
+            </video>
+            <h3 id="videoCaption"></h3>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 <strong>Pynuet Gallery</strong> by Bustanul Arifin. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function openVideoLightbox(src, title) {
+            const lightbox = document.getElementById('videoLightbox');
+            const player = document.getElementById('modalVideoPlayer');
+            const caption = document.getElementById('videoCaption');
+            
+            player.src = src;
+            caption.innerText = title;
+            lightbox.style.display = 'flex';
+            player.play();
+        }
+
+        function closeVideoLightbox() {
+            const lightbox = document.getElementById('videoLightbox');
+            const player = document.getElementById('modalVideoPlayer');
+            
+            lightbox.style.display = 'none';
+            player.pause();
+            player.src = "";
+        }
+    </script>
+</body>
+</html>

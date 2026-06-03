@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pynuet Gallery | Visual Storytelling</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS UNTUK WARNA LINK CONTACT MENJADI PUTIH */
+        .social-links a {
+            color: #ffffff !important; 
+            text-decoration: underline; 
+            text-decoration-color: rgba(255, 255, 255, 0.3); 
+            transition: opacity 0.2s ease;
+        }
+        .social-links a:hover {
+            opacity: 0.8; 
+        }
+
+        /* =======================================================
+           STYLE UNTUK EFEK POP-OUT BOLAK-BALIK SAAT DI-SCROLL
+           ======================================================= */
+        
+        /* State Awal & State Saat Keluar Layar: Elemen mengecil dan menghilang */
+        .scroll-pop {
+            opacity: 0;
+            transform: scale(0.75);
+            /* Transisi keluar (saat hilang) dibuat sedikit lebih cepat agar halus */
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            will-change: transform, opacity;
+        }
+
+        /* State Akhir: Saat elemen masuk layar, class is-visible memicu efek pop-out membal */
+        .scroll-pop.is-visible {
+            opacity: 1;
+            transform: scale(1);
+            /* Menggunakan cubic-bezier untuk efek pegas/membal saat muncul */
+            transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.25), 
+                        transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+        }
+
+        /* Efek jeda berurutan untuk elemen yang bersebelahan */
+        .delay-1 { transition-delay: 0.15s; }
+        .delay-2 { transition-delay: 0.3s; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Pynuet<span>Gallery</span></div>
+        <ul>
+            <li onclick="scrollToSection('home')">Home</li>
+            <li onclick="scrollToSection('about')">Profile</li>
+            <li onclick="scrollToSection('kategori')">Services</li>
+            <li onclick="scrollToSection('gallery')">Albums</li>
+            <li onclick="scrollToSection('video')">Video</li> 
+            <li onclick="scrollToSection('contact')">Contact</li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2 class="scroll-pop">Bustanul Arifin</h2>
+            <div class="hero-desc">
+                <p class="id scroll-pop delay-1">Welcome! Explore my work, and feel free to reach out for collaboration opportunities or professional partnerships.</p>
+            </div>
+            <button class="btn-main scroll-pop delay-2" onclick="scrollToSection('gallery')">Explore Work</button>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <h2 class="scroll-pop">About Me / <span>Tentang Saya</span></h2>
+        <div class="profile">
+            <div class="profile-img-container scroll-pop">
+                <img src="assets/foto afin 2.jpg" alt="Bustanul Arifin">
+            </div>
+            <div class="profile-text scroll-pop delay-1">
+                <div class="bio-pair">
+                    <p class="en">Hi, I'm <b>Bustanul Arifin</b>. the person behind <strong>Pynuet Gallery</strong>, Through my lens, I strive to capture more than just moments—I capture emotions, energy, and the stories that unfold on every stage.</p>
+                    <p class="id">Halo, saya <b>Bustanul Arifin</b>. fotografer di balik <strong>Pynuet Gallery</strong>, Melalui lensa kamera, saya berusaha mengabadikan lebih dari sekadar momen—saya menangkap emosi, energi, dan cerita yang hidup di setiap panggung.</p>
+                </div>
+                <div class="bio-pair">
+                    <p class="en">Specializing in concert and event photography, I transform fleeting seconds into lasting memories. From the excitement of the crowd to the passion of the performers, every frame is crafted to preserve the atmosphere and emotion that make each event unique.</p>
+                    <p class="id">Saya berfokus pada fotografi konser dan dokumentasi acara, mengubah detik-detik yang berlalu menjadi kenangan yang abadi. Dari antusiasme penonton hingga ekspresi para penampil, setiap foto dirancang untuk mempertahankan suasana dan emosi yang membuat setiap acara begitu istimewa.</p>
+                </div>
+                <div class="skills">
+                    <span>Photography</span>
+                    <span>Photo Editing</span>
+                    <span>Video Production</span>
+                    <span>Visual Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="kategori">
+        <h2 class="scroll-pop">Our Services / <span>Layanan Kami</span></h2>
+        <div class="grid-container">
+            <div class="card scroll-pop">
+                <div class="card-icon">🎸</div>
+                <h3>Concert Photography</h3>
+                <p class="en">Capturing the intensity of stage lights and iconic performances.</p>
+                <p class="id">Menangkap intensitas cahaya panggung dan aksi panggung yang ikonik.</p>
+            </div>
+            <div class="card scroll-pop delay-1">
+                <div class="card-icon">🎭</div>
+                <h3>Event & Culture</h3>
+                <p class="en">Documenting community festivals and precious cultural interactions.</p>
+                <p class="id">Mendokumentasikan festival komunitas dan interaksi budaya yang berharga.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="gallery">
+        <h2 class="scroll-pop">Photo Albums / <span>Album Foto</span></h2>
+        <div class="gallery-grid">
+            <a href="konser.html" class="album-card scroll-pop">
+                <img src="assets/Kartini/ella.jpg">
+                <div class="album-overlay">
+                    <div class="album-title">Live Performance</div>
+                </div>
+            </a>
+            <a href="event.html" class="album-card scroll-pop delay-1">
+                <img src="assets/Section VIII/section (16).JPG">
+                <div class="album-overlay">
+                    <div class="album-title">Community Event</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="section" id="video">
+        <h2 class="scroll-pop">Video Showcase / <span>Karya Video</span></h2>
+        <div class="video-container compact scroll-pop" style="text-align: center; margin-top: 20px;">
+            <p class="en" style="font-size: 1.1rem; margin-bottom: 10px;">All of my videography work is available on my Instagram.</p>
+            <p class="id" style="font-size: 1.1rem; margin-bottom: 25px; color: #666;">Semua karya videografi saya berada di Instagram ini.</p>
+            
+            <a href="https://www.instagram.com/pynuetclips_/" target="_blank" rel="noopener noreferrer" class="btn-main" style="text-decoration: none; display: inline-block;">
+                Kunjungi Instagram @pynuetclips_
+            </a>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact">
+        <div class="contact-box scroll-pop">
+            <h2>Let's Collaborate / <span>Mari Berkolaborasi</span></h2>
+            <p class="en">Interested in working together or just want to say hi? Feel free to reach out.</p>
+            <p class="id">Tertarik untuk bekerja sama atau sekadar menyapa? Silakan hubungi saya.</p>
+            
+            <div class="social-links">
+                <p><strong>Email:</strong> <a href="mailto:Afinyt1l@email.com">Afinyt1l@email.com</a></p>
+                <p><strong>Instagram:</strong> <a href="https://www.instagram.com/pynuet" target="_blank" rel="noopener noreferrer">@pynuet</a></p>
+                <p><strong>X:</strong> <a href="https://x.com/PointOfEldora" target="_blank" rel="noopener noreferrer">@PointOfEldora</a></p>
+                <p><strong>Tiktok:</strong> <a href="https://www.tiktok.com/@Welunara" target="_blank" rel="noopener noreferrer">@Pynuet🥜</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 <strong>Pynuet Gallery</strong> by Bustanul Arifin. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function scrollToSection(id){
+            const element = document.getElementById(id);
+            if(element) {
+                element.scrollIntoView({
+                    behavior:"smooth"
+                });
+            }
+        }
+
+        // Script Deteksi Scroll Terbuka & Tertutup Otomatis
+        document.addEventListener("DOMContentLoaded", function () {
+            const scrollElements = document.querySelectorAll(".scroll-pop");
+
+            const elementObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        // Saat masuk area layar (baik dari atas maupun bawah) -> Munculkan
+                        entry.target.classList.add("is-visible");
+                    } else {
+                        // Saat keluar dari area layar -> Sembunyikan kembali
+                        entry.target.classList.remove("is-visible");
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.1, // Elemen bereaksi saat 10% bagiannya masuk/keluar layar
+                rootMargin: "-20px 0px -20px 0px" // Batas sensitivitas layar atas-bawah
+            });
+
+            scrollElements.forEach((el) => {
+                elementObserver.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
